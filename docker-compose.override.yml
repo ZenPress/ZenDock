@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+  nginx:
+    volumes:
+      - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
+  wordpress:
+    volumes:
+      - ./config/wordpress/wp-config-local.php:/var/www/wp-config-local.php
+      - ./config/wordpress/docker-wp-entrypoint.sh:/var/www/docker-wp-entrypoint.sh
+    environment:
+      WP_ENV: 'dev'
+    entrypoint: /var/www/docker-wp-entrypoint.sh
+    command: ["php-fpm7"]
