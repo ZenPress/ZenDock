@@ -1,16 +1,5 @@
 version: '2'
 services:
-  traefik:
-    image: traefik:1.4-alpine
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./config/traefik/traefik.toml:/etc/traefik/traefik.toml
-    networks:
-      - net_proxy
-    ports:
-      - 80:80
-      - 443:443
-      - 8080:8080
   mysql:
     image: percona/percona-server:5.7
     deploy:
