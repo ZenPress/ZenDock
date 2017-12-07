@@ -5,8 +5,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./config/traefik/traefik.toml:/etc/traefik/traefik.toml
-      - ./secrets/ssl/local.crt:/etc/traefik/local.crt
-      - ./secrets/ssl/local.key:/etc/traefik/local.key
     networks:
       - net_proxy
     ports:
