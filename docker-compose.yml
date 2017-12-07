@@ -1,11 +1,10 @@
-version: '3.4'
+version: '2'
 services:
   traefik:
     image: traefik:1.4-alpine
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./secrets/traefik/traefik.toml:/etc/traefik/traefik.toml
-      - ./secrets/traefik/acme.json:/etc/traefik/acme.json
+      - ./config/traefik/traefik.toml:/etc/traefik/traefik.toml
       - ./secrets/ssl/local.crt:/etc/traefik/local.crt
       - ./secrets/ssl/local.key:/etc/traefik/local.key
     networks:
