@@ -1,2 +1,6 @@
 /secrets/ssl/*
 !/secrets/ssl/.gitkeep
+
+/data/*
+
+/content/*

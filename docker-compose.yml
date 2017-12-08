@@ -36,8 +36,9 @@ services:
     labels:
       - traefik.enable=true
       - traefik.backend=nginx
-      - traefik.frontend.rule=Host:zenpress.com.br
-      - traefik.docker.network=net_proxy
+      - traefik.frontend.rule=Host:local.zenpress.com.br
+      # traefik needs network's name with project's name
+      - traefik.docker.network=zendock_net_proxy
     volumes:
       - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./content/plugins:/var/www/content/plugins:ro

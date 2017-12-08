@@ -10,15 +10,12 @@ services:
     networks:
       - net_proxy
     ports:
-      - 8080:80
+      - 80:80
       - 443:443
-      - 8090:8080
+      - 8080:8080
   nginx:
     networks:
       - net_proxy
-#    volumes:
-#      - ./secrets/ssl/local.key:/etc/ssl/local.key
-#      - ./secrets/ssl/local.crt:/etc/ssl/local.crt
   wordpress:
     volumes:
       - ./config/wordpress/wp-config-local.php:/var/www/wp-config-local.php
