@@ -25,6 +25,7 @@ services:
       - ./content/plugins:/var/www/content/plugins
       - ./content/themes:/var/www/content/themes
       - ./content/uploads:/var/www/content/uploads
+      - app:/var/www/
     networks:
       - net_app
       - net_data
@@ -43,6 +44,7 @@ services:
       - ./content/plugins:/var/www/content/plugins:ro
       - ./content/themes:/var/www/content/themes:ro
       - ./content/uploads:/var/www/content/uploads:ro
+      - app:/var/www/
     networks:
       - net_app
 networks:
@@ -50,3 +52,4 @@ networks:
   net_data:
 volumes:
   data:
+  app:
