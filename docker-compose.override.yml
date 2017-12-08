@@ -1,9 +1,24 @@
 version: '2'
 services:
-  nginx:
+  traefik:
+    image: traefik:1.4-alpine
     volumes:
-      - ./secrets/ssl/local.key:/etc/ssl/local.key
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config/traefik/traefik.toml:/etc/traefik/traefik.toml
       - ./secrets/ssl/local.crt:/etc/ssl/local.crt
+      - ./secrets/ssl/local.key:/etc/ssl/local.key
+    networks:
+      - net_proxy
+    ports:
+      - 8080:80
+      - 443:443
+      - 8090:8080
+  nginx:
+    networks:
+      - net_proxy
+#    volumes:
+#      - ./secrets/ssl/local.key:/etc/ssl/local.key
+#      - ./secrets/ssl/local.crt:/etc/ssl/local.crt
   wordpress:
     volumes:
       - ./config/wordpress/wp-config-local.php:/var/www/wp-config-local.php
@@ -12,3 +27,5 @@ services:
       WP_ENV: 'dev'
     entrypoint: /var/www/docker-wp-entrypoint.sh
     command: ["php-fpm7"]
+networks:
+  net_proxy:
