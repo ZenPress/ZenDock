@@ -7,6 +7,9 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
+    cpuset: "5"
+    mem_limit: 256m
+    mem_reservation: 128m
     volumes:
       - data:/var/lib/mysql
     networks:
@@ -21,6 +24,9 @@ services:
       WP_TABLE_PREFIX: zp
     depends_on:
       - mysql
+    cpuset: "5"
+    mem_limit: 256m
+    mem_reservation: 128m
     volumes:
       - ./content/plugins:/var/www/content/plugins
       - ./content/themes:/var/www/content/themes
@@ -39,6 +45,9 @@ services:
       - traefik.frontend.rule=Host:local.zenpress.com.br
       # traefik needs network's name with project's name
       - traefik.docker.network=zendock_net_proxy
+    cpuset: "5"
+    mem_limit: 32m
+    mem_reservation: 16m
     volumes:
       - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./content/plugins:/var/www/content/plugins:ro

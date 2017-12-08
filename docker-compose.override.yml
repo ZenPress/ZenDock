@@ -7,6 +7,9 @@ services:
       - ./config/traefik/traefik.toml:/etc/traefik/traefik.toml
       - ./secrets/ssl/local.crt:/etc/ssl/local.crt
       - ./secrets/ssl/local.key:/etc/ssl/local.key
+    cpuset: "5"
+    mem_limit: 64m
+    mem_reservation: 32m
     networks:
       - net_proxy
     ports:
