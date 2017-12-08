@@ -1,5 +1,5 @@
-/secrets/ssl/*
-!/secrets/ssl/.gitkeep
+/config/ssl/*
+!/config/ssl/.gitkeep
 
 /data/*
 

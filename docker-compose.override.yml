@@ -5,8 +5,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./config/traefik/traefik.toml:/etc/traefik/traefik.toml
-      - ./secrets/ssl/local.crt:/etc/ssl/local.crt
-      - ./secrets/ssl/local.key:/etc/ssl/local.key
+      - ./config/ssl/local.crt:/etc/ssl/local.crt
+      - ./config/ssl/local.key:/etc/ssl/local.key
     cpuset: "5"
     mem_limit: 64m
     mem_reservation: 32m
