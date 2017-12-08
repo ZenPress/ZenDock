@@ -4,3 +4,5 @@
 /data/*
 
 /content/*
+
+docker-compose.override.yml
