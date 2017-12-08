@@ -4,6 +4,10 @@
 /data/*
 
 /content/*
+/content/themes/*
+/content/plugins/*
+/content/uploads/*
+!/content/.gitkeep
 !/content/themes/.gitkeep
 !/content/plugins/.gitkeep
 !/content/uploads/.gitkeep
