@@ -4,5 +4,8 @@
 /data/*
 
 /content/*
+!/content/themes/.gitkeep
+!/content/plugins/.gitkeep
+!/content/uploads/.gitkeep
 
 docker-compose.override.yml
