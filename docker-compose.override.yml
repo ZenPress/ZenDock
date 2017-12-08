@@ -1,8 +1,5 @@
 version: '2'
 services:
-  nginx:
-    volumes:
-      - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
   wordpress:
     volumes:
       - ./config/wordpress/wp-config-local.php:/var/www/wp-config-local.php
