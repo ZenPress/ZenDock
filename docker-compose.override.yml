@@ -1,5 +1,9 @@
 version: '2'
 services:
+  nginx:
+    volumes:
+      - ./secrets/ssl/local.key:/etc/ssl/local.key
+      - ./secrets/ssl/local.crt:/etc/ssl/local.crt
   wordpress:
     volumes:
       - ./config/wordpress/wp-config-local.php:/var/www/wp-config-local.php
